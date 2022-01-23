@@ -7,8 +7,9 @@ const mongoose = require('mongoose');
 const res = require('express/lib/response');
 const Schema = mongoose.Schema;
 const bcrypt = require("bcryptjs");
+require('dotenv').config();
 
-const mongoDb = "mongodb+srv://authBasics:WJPWfxZDomQrvGSk@sandbox.bn3ul.mongodb.net/authBasics?retryWrites=true&w=majority";
+const mongoDb = process.env.DB_HOST;
 mongoose.connect(mongoDb, {useUnifiedTopology: true, useNewURLParser: true});
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "mongo connection error"));
